@@ -28,31 +28,33 @@
     <div class="container my-5">
       <section>
         <div class="row">
-          <div class="col-3">
+          <div class="col-md-3">
             <div class="card srch-sec">
               <div class="card-body">
                 <label>City Search</label>
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" />
+                  <input id="citySearch" type="text" class="form-control" />
                   <div>
-                    <button class="btn btn-primary" type="submit">
+                    <button id="findMyCity" class="btn btn-primary" type="submit">
                       Search
                     </button>
                   </div>
                 </div>
+                <div id="recentSearch"></div>
               </div>
             </div>
           </div>
-          <div class="col-9">
+          <div class="col-md-9">
               <div class="row">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title"></h4>
+                    <h4 id="cityLocal" class="card-title"></h4>
                     <ul>
-                      <li>Temperature:</li>
-                      <li>Humidity:</li>
-                      <li>Windspeed:</li>
-                      <li>UV Index:</li>
+                      <li><img id="curWthrCon"</li>
+                      <li id="curTemp">Temperature:</li>
+                      <li id="curHumd">Humidity:</li>
+                      <li id="curWndSpd">Windspeed:</li>
+                      <li id="curUndx">UV Index:</li>
                     </ul>
                   </div>
                 </div>
@@ -60,9 +62,8 @@
               <div class="row">
                 <h4 class="card-title"> 5-Day Forecast</h4>
               </div>
-              <div class="row"></div>
+              <div id="fiveDayCast" class="row"></div>
           </div>
-
             </div>
     </div>
 
