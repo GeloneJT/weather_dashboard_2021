@@ -13,3 +13,21 @@ var city_windspd = document.getElementById("curWndSpd");
 var city_ndx = document.getElementById("curUndx");
 
 
+city_btn.addEventListener('click', function () {
+    var cityInput = document.getElementById("cityInput").value
+
+    console.log(cityInput)
+    fetch("https://api.openweathermap.org/data/2.5/weather?q="+cityInput+"&appid=62792f0221bde7c0c082e1e71bab13e3")
+        .then(response => response.json())
+        .then(json => {
+            console.log(json) 
+
+            city_locat.innertText = 
+
+            
+        })
+})
+
+
+
+
