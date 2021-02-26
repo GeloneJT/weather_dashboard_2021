@@ -38,6 +38,8 @@ city_btn.addEventListener('click', function () {
         .then(json => {
             console.log(json)
 
+            city_ndx.innerText = `UV Index: ${json.current.uvi}`;
+
 
 
 
