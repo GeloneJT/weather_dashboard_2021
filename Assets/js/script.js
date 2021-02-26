@@ -16,6 +16,9 @@ var city_date = document.getElementById("itsNow");
 
 city_btn.addEventListener('click', function () {
     var cityInput = document.getElementById("cityInput").value
+    var city_key = "cityName";
+    localStorage.setItem(city_key, cityInput);
+   
 
     console.log(cityInput)
     fetch("https://api.openweathermap.org/data/2.5/weather?q="+cityInput+"&units=imperial"+"&appid=62792f0221bde7c0c082e1e71bab13e3")
@@ -27,7 +30,7 @@ city_btn.addEventListener('click', function () {
             city_temp.innerText = `Temperature: ${json.main.temp} F`;
             city_humd.innerText= `Humidity: ${json.main.humidity} %`;
             city_windspd.innerText =`Wind Speed ${json.wind.speed} mph`;
-            city_locat.value = "";
+            city_input.value = "";
         
         let lat = json.coord.lat;
         let lon =json.coord.lon;
@@ -52,6 +55,8 @@ city_btn.addEventListener('click', function () {
             city_ndx.innerText = `UV Index: ${json.current.uvi}`;
             city_icon.src = iconurl;
             city_date.innerText = itsToday;
+            
+            
 
             
 
@@ -65,6 +70,7 @@ city_btn.addEventListener('click', function () {
         })
     })
 })
+
 
 
 
