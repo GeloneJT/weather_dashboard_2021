@@ -11,6 +11,7 @@ var city_temp = document.getElementById("curTemp");
 var city_humd = document.getElementById("curHumd");
 var city_windspd = document.getElementById("curWndSpd");
 var city_ndx = document.getElementById("curUndx");
+var city_date = document.getElementById("itsNow");
 
 
 city_btn.addEventListener('click', function () {
@@ -42,8 +43,16 @@ city_btn.addEventListener('click', function () {
         .then(json => {
             console.log(json)
 
+            let currentDate = json.current.dt * 1000;
+            console.log(currentDate);
+            let itsToday = new Date(currentDate);
+            console.log(itsToday);
+
+
             city_ndx.innerText = `UV Index: ${json.current.uvi}`;
-            city_icon.src = iconurl.png; 
+            city_icon.src = iconurl;
+            city_date.innerText = itsToday;
+
             
 
 
