@@ -26,12 +26,15 @@ city_btn.addEventListener('click', function () {
             city_temp.innerText = `Temperature: ${json.main.temp} F`;
             city_humd.innerText= `Humidity: ${json.main.humidity} %`;
             city_windspd.innerText =`Wind Speed ${json.wind.speed} mph`;
+            city_icon.innerHTML = `${json.weather[0].icon}`;
             city_locat.value = "";
         
         let lat = json.coord.lat;
         let lon =json.coord.lon;
+        let icon =json.weather[0].icon;
         console.log(lat);
         console.log(lon);
+        console.log(icon)
 
         fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&appid=62792f0221bde7c0c082e1e71bab13e3")
         .then(response => response.json())
@@ -39,6 +42,8 @@ city_btn.addEventListener('click', function () {
             console.log(json)
 
             city_ndx.innerText = `UV Index: ${json.current.uvi}`;
+            
+
 
 
 
