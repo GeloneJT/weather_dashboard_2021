@@ -68,7 +68,7 @@ city_btn.addEventListener("click", function () {
           let alpha_Temp = document.getElementById("alphaTemp");
           let alpha_Hum = document.getElementById("alphaHum");
 
-          alpha_Date.innerText = (json.daily[0].dt * 1000);
+          alpha_Date.innerText = json.daily[0].dt * 1000;
           alpha_Con.src = "https://openweathermap.org/img/wn/"+json.daily[0].weather[0].icon+"@2x.png";
           alpha_Temp.innerText = `Temp: ${json.daily[0].temp.day} F`;
           alpha_Hum.innerText = `Humidity: ${json.daily[0].humidity} %`;
@@ -78,7 +78,7 @@ city_btn.addEventListener("click", function () {
           let beta_Temp = document.getElementById("betaTemp");
           let beta_Hum = document.getElementById("betaHum");
 
-          beta_Date.innerText = (json.daily[1].dt * 1000);
+          beta_Date.innerText = json.daily[1].dt * 1000;
           beta_Con.src = "https://openweathermap.org/img/wn/"+json.daily[1].weather[0].icon+"@2x.png";
           beta_Temp.innerText = `Temp: ${json.daily[1].temp.day} F`;
           beta_Hum.innerText = `Humidity: ${json.daily[1].humidity} %`;
@@ -88,7 +88,7 @@ city_btn.addEventListener("click", function () {
           let char_Temp = document.getElementById("charTemp");
           let char_Hum = document.getElementById("charHum");
 
-          char_Date.innerText = (json.daily[2].dt * 1000);
+          char_Date.innerText = json.daily[2].dt * 1000;
           char_Con.src = "https://openweathermap.org/img/wn/"+json.daily[2].weather[0].icon+"@2x.png";
           char_Temp.innerText = `Temp: ${json.daily[2].temp.day} F`;
           char_Hum.innerText = `Humidity: ${json.daily[2].humidity} %`;
@@ -98,7 +98,7 @@ city_btn.addEventListener("click", function () {
           let del_Temp = document.getElementById("delTemp");
           let del_Hum = document.getElementById("delHum");
 
-          del_Date.innerText = (json.daily[3].dt * 1000);
+          del_Date.innerText = json.daily[3].dt * 1000;
           del_Con.src = "https://openweathermap.org/img/wn/"+json.daily[3].weather[0].icon+"@2x.png";
           del_Temp.innerText = `Temp: ${json.daily[3].temp.day}`;
           del_Hum.innerText = `Humidity: ${json.daily[3].humidity} %`;
@@ -109,7 +109,7 @@ city_btn.addEventListener("click", function () {
           let echo_Temp = document.getElementById("echoTemp");
           let echo_Hum = document.getElementById("echoHum");
 
-          echo_Date.innerText = (json.daily[4].dt * 1000);
+          echo_Date.innerText = json.daily[4].dt * 1000;
           echo_Con.src = "https://openweathermap.org/img/wn/"+json.daily[4].weather[0].icon+"@2x.png";
           echo_Temp.innerText = `Temp: ${json.daily[4].temp.day}`;
           echo_Hum.innerText = `Humidity: ${json.daily[4].humidity} %`;
