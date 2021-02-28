@@ -37,7 +37,7 @@ city_btn.addEventListener("click", function () {
       let lat = json.coord.lat;
       let lon = json.coord.lon;
       let icon = json.weather[0].icon;
-      let iconurl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+      let iconurl = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
       console.log(lat);
       console.log(lon);
       console.log(icon);
@@ -48,7 +48,7 @@ city_btn.addEventListener("click", function () {
           lat +
           "&lon=" +
           lon +
-          "&appid=62792f0221bde7c0c082e1e71bab13e3"
+          "&units=imperial&appid=62792f0221bde7c0c082e1e71bab13e3"
       )
         .then((response) => response.json())
         .then((json) => {
@@ -63,12 +63,15 @@ city_btn.addEventListener("click", function () {
           city_icon.src = iconurl;
           city_date.innerText = itsToday;
 
-          
-          fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude=minutely,hourly,alerts&appid="+APIkey)
-          .then(response => response.json())
-          .then(json => {
-              console.log(json)
-          });
+          let alpha_Date = document.getElementById("alphaDate");
+          let alpha_Con = document.getElementById("alphaCon");
+          let alpha_Temp = document.getElementById("alphaTemp");
+          let alpha_Hum = document.getElementById("alphaHum");
+
+          alpha_Date.innerText = (json.daily[0].dt * 1000);
+          alpha_Con.src = "https://openweathermap.org/img/wn/"+json.daily[0].weather[0].icon+"@2x.png";
+          alpha_Temp.innerText = `Temp: ${json.daily[0].temp.day}`;
+          alpha_Hum.innerText = json.daily[0].humidity;
         });
     });
 });
