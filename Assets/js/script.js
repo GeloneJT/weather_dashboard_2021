@@ -71,7 +71,7 @@ city_btn.addEventListener("click", function () {
           alpha_Date.innerText = (json.daily[0].dt * 1000);
           alpha_Con.src = "https://openweathermap.org/img/wn/"+json.daily[0].weather[0].icon+"@2x.png";
           alpha_Temp.innerText = `Temp: ${json.daily[0].temp.day} F`;
-          alpha_Hum.innerText = `Humidity: ${json.daily[0].humidity} %` ;
+          alpha_Hum.innerText = `Humidity: ${json.daily[0].humidity} %`;
 
           let beta_Date = document.getElementById("betaDate");
           let beta_Con = document.getElementById("betaCon");
@@ -93,26 +93,26 @@ city_btn.addEventListener("click", function () {
           char_Temp.innerText = `Temp: ${json.daily[2].temp.day} F`;
           char_Hum.innerText = `Humidity: ${json.daily[2].humidity} %`;
 
-        //   let alpha_Date = document.getElementById("alphaDate");
-        //   let alpha_Con = document.getElementById("alphaCon");
-        //   let alpha_Temp = document.getElementById("alphaTemp");
-        //   let alpha_Hum = document.getElementById("alphaHum");
+          let del_Date = document.getElementById("delDate");
+          let del_Con = document.getElementById("delCon");
+          let del_Temp = document.getElementById("delTemp");
+          let del_Hum = document.getElementById("delHum");
 
-        //   alpha_Date.innerText = (json.daily[0].dt * 1000);
-        //   alpha_Con.src = "https://openweathermap.org/img/wn/"+json.daily[0].weather[0].icon+"@2x.png";
-        //   alpha_Temp.innerText = `Temp: ${json.daily[0].temp.day}`;
-        //   alpha_Hum.innerText = json.daily[0].humidity;
+          del_Date.innerText = (json.daily[3].dt * 1000);
+          del_Con.src = "https://openweathermap.org/img/wn/"+json.daily[3].weather[0].icon+"@2x.png";
+          del_Temp.innerText = `Temp: ${json.daily[3].temp.day}`;
+          del_Hum.innerText = `Humidity: ${json.daily[3].humidity} %`;
 
 
-        //   let alpha_Date = document.getElementById("alphaDate");
-        //   let alpha_Con = document.getElementById("alphaCon");
-        //   let alpha_Temp = document.getElementById("alphaTemp");
-        //   let alpha_Hum = document.getElementById("alphaHum");
+          let echo_Date = document.getElementById("echoDate");
+          let echo_Con = document.getElementById("echoCon");
+          let echo_Temp = document.getElementById("echoTemp");
+          let echo_Hum = document.getElementById("echoHum");
 
-        //   alpha_Date.innerText = (json.daily[0].dt * 1000);
-        //   alpha_Con.src = "https://openweathermap.org/img/wn/"+json.daily[0].weather[0].icon+"@2x.png";
-        //   alpha_Temp.innerText = `Temp: ${json.daily[0].temp.day}`;
-        //   alpha_Hum.innerText = json.daily[0].humidity;
+          echo_Date.innerText = (json.daily[4].dt * 1000);
+          echo_Con.src = "https://openweathermap.org/img/wn/"+json.daily[4].weather[0].icon+"@2x.png";
+          echo_Temp.innerText = `Temp: ${json.daily[4].temp.day}`;
+          echo_Hum.innerText = `Humidity: ${json.daily[4].humidity} %`;
         });
     });
 });
