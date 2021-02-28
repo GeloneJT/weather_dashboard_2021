@@ -16,8 +16,9 @@ city_btn.addEventListener("click", function () {
   var cityInput = document.getElementById("cityInput").value;
   var city_key = "cityName";
   localStorage.setItem(city_key, cityInput);
-
   console.log(cityInput);
+
+  // Fetches api data for single day weather information
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
       cityInput +
@@ -43,6 +44,7 @@ city_btn.addEventListener("click", function () {
       console.log(icon);
       console.log(iconurl);
 
+      // Fetches data for 8 day weather forecast
       fetch(
         "https://api.openweathermap.org/data/2.5/onecall?lat=" +
           lat +
@@ -57,79 +59,94 @@ city_btn.addEventListener("click", function () {
           let currentDate = json.current.dt * 1000;
           console.log(currentDate);
           let itsToday = new Date(currentDate);
-          let itsTodayISO = itsToday.toISOString().split("T")[0]
+          let itsTodayISO = itsToday.toISOString().split("T")[0];
           console.log(itsTodayISO);
 
+          // Sets text color for UVI based on UVI value
           city_ndx.innerText = `UV Index: ${json.current.uvi}`;
-          if (json.current.uvi <= 2){
-              $(city_ndx).css("color", "green");
-          }
-          else if (json.current.uvi <= 5){
+          if (json.current.uvi <= 2) {
+            $(city_ndx).css("color", "green");
+          } else if (json.current.uvi <= 5) {
             $(city_ndx).css("color", "yellow");
-          }
-          else if (json.current.uvi <= 7){
+          } else if (json.current.uvi <= 7) {
             $(city_ndx).css("color", "orange");
-          }
-          else if (json.current.uvi <= 10){
+          } else if (json.current.uvi <= 10) {
             $(city_ndx).css("color", "red");
-          }
-          else {
-            $(city_ndx).css("color", "violet")
+          } else {
+            $(city_ndx).css("color", "violet");
           }
 
           city_icon.src = iconurl;
           city_date.innerText = itsTodayISO;
 
+          //Populates data into HTML for Day 2
           let alpha_Date = document.getElementById("alphaDate");
           let alpha_Con = document.getElementById("alphaCon");
           let alpha_Temp = document.getElementById("alphaTemp");
           let alpha_Hum = document.getElementById("alphaHum");
           let alpha_UTC = json.daily[0].dt * 1000;
-          
 
           alpha_Date.innerText = alpha_UTC;
-          alpha_Con.src = "https://openweathermap.org/img/wn/"+json.daily[0].weather[0].icon+"@2x.png";
+          alpha_Con.src =
+            "https://openweathermap.org/img/wn/" +
+            json.daily[0].weather[0].icon +
+            "@2x.png";
           alpha_Temp.innerText = `Temp: ${json.daily[0].temp.day} F`;
           alpha_Hum.innerText = `Humidity: ${json.daily[0].humidity} %`;
 
+          //Populates data into HTML for Day 3
           let beta_Date = document.getElementById("betaDate");
           let beta_Con = document.getElementById("betaCon");
           let beta_Temp = document.getElementById("betaTemp");
           let beta_Hum = document.getElementById("betaHum");
 
           beta_Date.innerText = json.daily[1].dt * 1000;
-          beta_Con.src = "https://openweathermap.org/img/wn/"+json.daily[1].weather[0].icon+"@2x.png";
+          beta_Con.src =
+            "https://openweathermap.org/img/wn/" +
+            json.daily[1].weather[0].icon +
+            "@2x.png";
           beta_Temp.innerText = `Temp: ${json.daily[1].temp.day} F`;
           beta_Hum.innerText = `Humidity: ${json.daily[1].humidity} %`;
 
+          //Populates data into HTML for Day 4
           let char_Date = document.getElementById("charDate");
           let char_Con = document.getElementById("charCon");
           let char_Temp = document.getElementById("charTemp");
           let char_Hum = document.getElementById("charHum");
 
           char_Date.innerText = json.daily[2].dt * 1000;
-          char_Con.src = "https://openweathermap.org/img/wn/"+json.daily[2].weather[0].icon+"@2x.png";
+          char_Con.src =
+            "https://openweathermap.org/img/wn/" +
+            json.daily[2].weather[0].icon +
+            "@2x.png";
           char_Temp.innerText = `Temp: ${json.daily[2].temp.day} F`;
           char_Hum.innerText = `Humidity: ${json.daily[2].humidity} %`;
 
+          //Populates data into HTML for Day 5
           let del_Date = document.getElementById("delDate");
           let del_Con = document.getElementById("delCon");
           let del_Temp = document.getElementById("delTemp");
           let del_Hum = document.getElementById("delHum");
 
           del_Date.innerText = json.daily[3].dt * 1000;
-          del_Con.src = "https://openweathermap.org/img/wn/"+json.daily[3].weather[0].icon+"@2x.png";
+          del_Con.src =
+            "https://openweathermap.org/img/wn/" +
+            json.daily[3].weather[0].icon +
+            "@2x.png";
           del_Temp.innerText = `Temp: ${json.daily[3].temp.day}`;
           del_Hum.innerText = `Humidity: ${json.daily[3].humidity} %`;
 
-
+          //Populates data into HTML for Day 6
           let echo_Date = document.getElementById("echoDate");
           let echo_Con = document.getElementById("echoCon");
           let echo_Temp = document.getElementById("echoTemp");
           let echo_Hum = document.getElementById("echoHum");
 
           echo_Date.innerText = json.daily[4].dt * 1000;
-          echo_Con.src = "https://openweathermap.org/img/wn/"+json.daily[4].weather[0].icon+"@2x.png";
+          echo_Con.src =
+            "https://openweathermap.org/img/wn/" +
+            json.daily[4].weather[0].icon +
+            "@2x.png";
           echo_Temp.innerText = `Temp: ${json.daily[4].temp.day}`;
           echo_Hum.innerText = `Humidity: ${json.daily[4].humidity} %`;
         });
